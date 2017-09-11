@@ -1,0 +1,23 @@
+<template name="App_body">
+    <body class="bg-light">
+        <div id="header" class="header-bar" style="height: 50px;">
+            <header class="container logoline">
+                {{#if currentUser}}
+                <div class="pull-left">
+                    <span>chatter</span>
+                </div>
+                <div class="pull-right">
+                    {{username}}
+                </div>
+                {{else}}
+                <div class="center-box">
+                    <span>chatter</span>
+                </div>
+                {{/if}}
+            </header>
+        </div>
+        <div id="main-contaier" class="container">
+            {{> Template.dynamic template=main}}
+        </div>
+    </body>
+</template>
