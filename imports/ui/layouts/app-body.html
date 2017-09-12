@@ -1,22 +1,17 @@
 <template name="App_body">
     <body class="bg-light">
-        <div id="header" class="header-bar" style="height: 50px;">
-            <header class="container logoline">
-                {{#if currentUser}}
-                <div class="pull-left">
-                    <span>chatter</span>
+        <div class="container">
+            {{#if currentUser}}
+            {{else}}
+            <div class="jumbotron app-banner text-center">
+                <h1 class="app-name">Chatter</h1>
+                <div class="row">
+                    <p class="col-md-6 col-md-offset-3 app-description">Chat with people on your favorite chat room platform</p>
                 </div>
-                <div class="pull-right">
-                    {{username}}
-                </div>
-                {{else}}
-                <div class="center-box">
-                    <span>chatter</span>
-                </div>
-                {{/if}}
-            </header>
+            </div>
+            {{/if}}
         </div>
-        <div id="main-contaier" class="container">
+        <div class="container main-content">
             {{> Template.dynamic template=main}}
         </div>
     </body>

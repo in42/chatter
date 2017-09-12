@@ -1,0 +1,20 @@
+<template name="Signin_page">
+    <section class="signin">
+        <div class="signin-form-container container col-md-6 col-md-offset-3">
+            <hr>
+            <form class="signin-form">
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-sunglasses"></i>
+                    <input id="signin-username" type="text" name="username" class="form-control" placeholder="Username">
+                </div>
+                <div class="inner-addon right-addon">
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input id="signin-password" type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-form-submit btn-block">Sign in</button>
+            </form>
+            <hr>
+            <p class="form-footer-info text-center">Don't have a Chatter account? <a class="a-custom" href="{{pathFor 'Signup'}}">Sign up</a></p>
+        </div>
+    </section>
+</template>

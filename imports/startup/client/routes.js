@@ -4,6 +4,7 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/layouts/app-body.js';
 import '../../ui/pages/app-root-redirector.js';
 import '../../ui/pages/signup-page.js';
+import '../../ui/pages/signin-page.js';
 
 FlowRouter.route('/', {
     name: 'App.home',
