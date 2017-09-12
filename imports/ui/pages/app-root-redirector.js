@@ -7,6 +7,6 @@ import './app-root-redirector.html';
 
 Template.App_rootRedirector.onCreated(() => {
     Meteor.defer(() => {
-        FlowRouter.go('Signup');
+        FlowRouter.go('Signin');
     });
 });
