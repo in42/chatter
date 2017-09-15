@@ -78,13 +78,15 @@
     position: relative;
 }
 
-.inner-addon .glyphicon {
+.inner-addon .fa {
     position: absolute;
     padding: 15px;
     pointer-events: none;
+    font-size: 18px;
+    color: #777777;
 }
 
-.right-addon .glyphicon {
+.right-addon .fa {
     right: 0px;
 }
 
