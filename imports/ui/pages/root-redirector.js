@@ -3,9 +3,9 @@ import { Template } from 'meteor/templating';
 
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import './app-root-redirector.html';
+import './root-redirector.html';
 
-Template.App_rootRedirector.onCreated(() => {
+Template.Root_redirector.onCreated(() => {
     Meteor.defer(() => {
         FlowRouter.go('Signin');
     });

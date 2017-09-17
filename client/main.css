@@ -1,14 +1,14 @@
 @font-face {
-    font-family: 'Raleway';
-    src: url('/fonts/Raleway-Regular.ttf') format('truetype');
+    font-family: 'Avenir';
+    src: url('/fonts/AvenirLTStd-Roman.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Raleway';
-    src: url('/fonts/Raleway-Bold.ttf') format('truetype');
-    font-weight: bold;
+    src: url('/fonts/Raleway-Regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .form-control {
-    margin-bottom: 20px;
-    font-family: 'Raleway', sans-serif;
+    margin-top: 20px;
+    font-family: 'Avenir', sans-serif;
     font-size: 19px !important;
     line-height: 24px !important;
     height: 46px;
@@ -46,8 +46,26 @@
     box-shadow: none !important;
 }
 
+.form-control.form-control-error,
+.form-control.form-control-error:focus {
+    border-color: #d93900 !important;
+}
+
+p.form-control-error {
+    color: #d93900;
+    font-family: 'Avenir';
+    font-size: 16px;
+    padding-top: 10px;
+}
+
+.form-error {
+    color: #d93900;
+    font-family: 'Avenir';
+    font-size: 16px;
+}
+
 .form-footer-info {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Avenir', sans-serif;
     font-size: 19px !important;
     line-height: 24px !important;
     margin-bottom: 20px;
@@ -61,8 +79,8 @@
 .btn-form-submit:hover,
 .btn-form-submit:focus,
 .btn-form-submit:active {
-    margin-bottom: 20px;
-    font-family: 'Raleway', sans-serif;
+    margin-top: 18px;
+    font-family: 'Avenir', sans-serif;
     font-size: 19px !important;
     font-weight: bold;
     line-height: 24px !important;

@@ -2,19 +2,30 @@
     <section class="signin">
         <div class="signin-form-container container col-md-6 col-md-offset-3">
             <hr>
-            <form class="signin-form">
+            <form class="signin-form" autocomplete="off">
+                {{#if serverError}}
+                <p class="{{serverError}} text-center">The username or password you entered is incorrect</p>
+                {{/if}}
                 <div class="inner-addon right-addon">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <input id="signin-username" type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control {{usernameError}}" placeholder="Username">
+                    {{#if usernameError}}
+                    <p class="form-control-error">Username required</p>
+                    {{/if}}
                 </div>
                 <div class="inner-addon right-addon">
                     <i class="fa fa-lock"></i>
-                    <input id="signin-password" type="password" name="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control {{passwordError}}" placeholder="Password">
+                    {{#if passwordError}}
+                    <p class="form-control-error">Password required</p>
+                    {{/if}}
                 </div>
                 <button type="submit" class="btn btn-form-submit btn-block">Sign in</button>
             </form>
             <hr>
-            <p class="form-footer-info text-center">Don't have a Chatter account? <a class="a-custom" href="{{pathFor 'Signup'}}">Sign up</a></p>
+            <p class="form-footer-info text-center">
+                Don't have a Chatter account? <a class="a-custom" href="{{pathFor 'Signup'}}">Sign up</a>
+            </p>
         </div>
     </section>
 </template>

@@ -2,22 +2,37 @@
     <section class="signup">
         <div class="signup-form-container container col-md-6 col-md-offset-3">
             <hr>
-            <form class="signup-form">
+            <form class="signup-form" autocomplete="off">
+                {{#if serverError}}
+                <p class="{{serverError}} text-center">Credentials not valid, can not create user</p>
+                {{/if}}
                 <div class="inner-addon right-addon">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <input id="signup-username" type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control {{usernameError}}" placeholder="Username">
+                    {{#if usernameError}}
+                    <p class="form-control-error">Username required</p>
+                    {{/if}}
                 </div>
                 <div class="inner-addon right-addon">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
-                    <input id="signup-firstname" type="text" name="firstname" class="form-control" placeholder="First name">
+                    <input type="text" name="firstname" class="form-control {{firstnameError}}" placeholder="First name">
+                    {{#if firstnameError}}
+                    <p class="form-control-error">First name required</p>
+                    {{/if}}
                 </div>
                 <div class="inner-addon right-addon">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
-                    <input id="signup-lastname" type="text" name="lastname" class="form-control" placeholder="Last name">
+                    <input id="signup-lastname" type="text" name="lastname" class="form-control {{lastnameError}}" placeholder="Last name">
+                    {{#if lastnameError}}
+                    <p class="form-control-error">Last name required</p>
+                    {{/if}}
                 </div>
                 <div class="inner-addon right-addon">
                     <i class="fa fa-lock"></i>
-                    <input id="signup-password" type="password" name="password" class="form-control" placeholder="Password">
+                    <input id="signup-password" type="password" name="password" class="form-control {{passwordError}}" placeholder="Password">
+                    {{#if passwordError}}
+                    <p class="form-control-error">Password required</p>
+                    {{/if}}
                 </div>
                 <button type="submit" class="btn btn-form-submit btn-block">Sign up</button>
             </form>
