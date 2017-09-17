@@ -8,9 +8,9 @@ Template.Signup_page.onCreated(function() {
     this.state = new ReactiveDict();
     this.state.setDefault({
         usernameError: false,
-        firstnameError: false,
-        lastnameError: false,
+        displaynameError: false,
         passwordError: false,
+        confirmPasswordError: false,
         serverError: false,
     });
 });
@@ -20,17 +20,17 @@ Template.Signup_page.helpers({
         const instance = Template.instance();
         return instance.state.get('usernameError') && 'form-control-error';
     },
-    firstnameError() {
+    displaynameError() {
         const instance = Template.instance();
-        return instance.state.get('firstnameError') && 'form-control-error';
-    },
-    lastnameError() {
-        const instance = Template.instance();
-        return instance.state.get('lastnameError') && 'form-control-error';
+        return instance.state.get('displaynameError') && 'form-control-error';
     },
     passwordError() {
         const instance = Template.instance();
         return instance.state.get('passwordError') && 'form-control-error';
+    },
+    confirmPasswordError() {
+        const instance = Template.instance();
+        return instance.state.get('confirmPasswordError') && 'form-control-error';
     },
     serverError() {
         const instance = Template.instance();
@@ -43,16 +43,16 @@ Template.Signup_page.events({
         event.preventDefault();
 
         var username = event.target.username.value;
-        var firstname = event.target.firstname.value;
-        var lastname = event.target.lastname.value;
+        var displayname = event.target.displayname.value;
         var password = event.target.password.value;
+        var confirmPassword = event.target.confirmPassword.value;
 
         instance.state.set('usernameError', !username);
-        instance.state.set('firstnameError', !firstname);
-        instance.state.set('lastnameError', !lastname);
+        instance.state.set('displaynameError', !displayname);
         instance.state.set('passwordError', !password);
+        instance.state.set('confirmPasswordError', password !== confirmPassword);
 
-        if (!username || !firstname || !lastname || !password) {
+        if (!username || !displayname || !password || password !== confirmPassword) {
             return;
         }
 
@@ -60,8 +60,7 @@ Template.Signup_page.events({
             username: username,
             password: password,
             profile: {
-                firstname: firstname,
-                lastname: lastname,
+                displayname: displayname,
             },
         };
 

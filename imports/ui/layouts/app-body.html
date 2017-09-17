@@ -1,17 +1,16 @@
 <template name="App_body">
     <body class="bg-light">
+        {{#unless currentUser}}
         <div class="container">
-            {{#if currentUser}}
-            {{else}}
             <div class="jumbotron app-banner text-center">
                 <img src="/logo.svg" alt="Chatter" class="app-name" height="38">
                 <div class="row">
                     <p class="col-md-6 col-md-offset-3 app-description">Chat with people on your favorite chat room platform</p>
                 </div>
             </div>
-            {{/if}}
         </div>
-        <div class="container main-content">
+        {{/unless}}
+        <div class="main-content">
             {{> Template.dynamic template=main}}
         </div>
     </body>
