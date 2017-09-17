@@ -20,7 +20,7 @@ FlowRouter.route('/', {
 
 FlowRouter.route('/signup', {
     triggersEnter: [function(context, redirect) {
-        if (Meteor.loggingIn() || Meteor.userId()) {
+        if (!Meteor.loggingOut() && Meteor.userId()) {
             redirect('/');
         }
     }],
@@ -32,7 +32,7 @@ FlowRouter.route('/signup', {
 
 FlowRouter.route('/signin', {
     triggersEnter: [function(context, redirect) {
-        if (Meteor.userId()) {
+        if (!Meteor.loggingOut() && Meteor.userId()) {
             redirect('/');
         }
     }],
