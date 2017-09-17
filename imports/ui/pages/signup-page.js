@@ -56,13 +56,20 @@ Template.Signup_page.events({
             return;
         }
 
-        Accounts.createUser({
+        var user = {
             username: username,
-            firstname: firstname,
-            lastname: lastname,
-            password: password
-        }, function(error) {
+            password: password,
+            profile: {
+                firstname: firstname,
+                lastname: lastname,
+            },
+        };
+
+        Accounts.createUser(user, function(error) {
             return instance.state.set('serverError', error);
+        });
+
+        Meteor.defer(() => {
             FlowRouter.go('App.home');
         });
     },

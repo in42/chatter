@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Avenir';
-    src: url('/fonts/AvenirLTStd-Roman.otf') format('opentype');
+    font-family: 'Helvetica';
+    src: url('/fonts/HelveticaNeue Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -33,7 +33,7 @@
 
 .form-control {
     margin-top: 20px;
-    font-family: 'Avenir', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 19px !important;
     line-height: 24px !important;
     height: 46px;
@@ -53,19 +53,19 @@
 
 p.form-control-error {
     color: #d93900;
-    font-family: 'Avenir';
+    font-family: 'Helvetica';
     font-size: 16px;
     padding-top: 10px;
 }
 
 .form-error {
     color: #d93900;
-    font-family: 'Avenir';
+    font-family: 'Helvetica';
     font-size: 16px;
 }
 
 .form-footer-info {
-    font-family: 'Avenir', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 19px !important;
     line-height: 24px !important;
     margin-bottom: 20px;
@@ -80,7 +80,7 @@ p.form-control-error {
 .btn-form-submit:focus,
 .btn-form-submit:active {
     margin-top: 18px;
-    font-family: 'Avenir', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 19px !important;
     font-weight: bold;
     line-height: 24px !important;
