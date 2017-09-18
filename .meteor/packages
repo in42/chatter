@@ -22,3 +22,5 @@ accounts-password
 kadira:flow-router
 kadira:blaze-layout
 arillo:flow-router-helpers
+aldeed:simple-schema
+mdg:validated-method

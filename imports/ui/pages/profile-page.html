@@ -17,10 +17,10 @@
                     </div>
                 </div>
             </div>
-            <div class="container chat-heads-pane">
+            <div class="container conversation-heads-pane">
                 {{#each conversation in conversations}}
-                    <div class="row chat-head">
-                        {{> Chat_head conversation}}
+                    <div class="row conversation-head">
+                        {{> Conversation_head (conversationHeadArgs conversation)}}
                     </div>
                 {{/each}}
             </div>
