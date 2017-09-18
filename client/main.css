@@ -124,9 +124,8 @@ p.form-control-error {
 
 .header-side-pane {
     padding: 15px;
-    border-right: 1px solid #dbdbdb;
     border-bottom: 1px solid #dbdbdb;
-    box-shadow: 0 0 2px #dbd9db;
+    box-shadow: 0 0 3px #dbd9db;
 }
 
 .menu-item {
@@ -141,27 +140,4 @@ a.fa:active {
     cursor: pointer;
     color: #777777;
     text-decoration: none;
-}
-
-.dropdown-menu:before {
-  position: absolute;
-  top: -7px;
-  left: 9px;
-  display: inline-block;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #ccc;
-  border-left: 7px solid transparent;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-  content: '';
-}
-
-.dropdown-menu:after {
-  position: absolute;
-  top: -6px;
-  left: 10px;
-  display: inline-block;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid #ffffff;
-  border-left: 6px solid transparent;
-  content: '';
 }
