@@ -9,11 +9,9 @@ export const insert = new ValidatedMethod({
     validate: new SimpleSchema({
         user1Id: Conversations.simpleSchema().schema('user1Id'),
         user2Id: Conversations.simpleSchema().schema('user2Id'),
-        latestMessage: Conversations.simpleSchema().schema('latestMessage'),
     }).validator(),
     run({ user1Id, user2Id }) {
         const conversation = {
-            latestMessage: latestMessage,
             user1Id:       user1Id,
             user2Id:       user2Id,
             createdAt:     new Date(),
@@ -30,7 +28,7 @@ export const updateLatestMessage = new ValidatedMethod({
         latestMessage:  Conversations.simpleSchema().schema('latestMessage'),
     }).validator({ clean: true }),
     run({ conversationId, latestMessage }) {
-        const conversation = Conversations.findOne({conversationId});
+        const conversation = Conversations.find({ _id: conversationId });
 
         if (!conversation.editableBy(this.userId)) {
             throw new Meteor.Error('conversations.updateLatestMessage.accessDenied',

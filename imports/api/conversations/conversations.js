@@ -11,7 +11,7 @@ Conversations.deny({
 
 Conversations.schema = new SimpleSchema({
     _id:           { type: String, regEx: SimpleSchema.RegEx.Id },
-    latestMessage: { type: String },
+    latestMessage: { type: String, optional: true },
     user1Id:       { type: String, regEx: SimpleSchema.RegEx.Id },
     user2Id:       { type: String, regEx: SimpleSchema.RegEx.Id },
     createdAt:     { type: Date },

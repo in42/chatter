@@ -82,10 +82,10 @@ p.form-control-error {
     color: #008489 !important;
 }
 
-.btn-form-submit,
-.btn-form-submit:hover,
-.btn-form-submit:focus,
-.btn-form-submit:active {
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:active {
     margin-top: 18px;
     font-size: 19px;
     font-weight: bold;
@@ -125,7 +125,12 @@ p.form-control-error {
 .side-pane {
     padding: 15px;
     border-bottom: 1px solid #dbdbdb;
-    box-shadow: 0 0 3px #dbd9db;
+}
+
+.chat-pane {
+    padding: 15px;
+    border-bottom: 1px solid #dbdbdb;
+    border-left: 1px solid #dbdbdb;
 }
 
 .menu-item {

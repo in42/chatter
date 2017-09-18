@@ -24,3 +24,5 @@ kadira:blaze-layout
 arillo:flow-router-helpers
 aldeed:simple-schema
 mdg:validated-method
+aldeed:collection2
+dburles:collection-helpers

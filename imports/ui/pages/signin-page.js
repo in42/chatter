@@ -43,9 +43,11 @@ Template.Signin_page.events({
         }
 
         Meteor.loginWithPassword(username, password, function(error) {
-            return instance.state.set('serverError', error);
+            if (error) {
+                return instance.state.set('serverError', error);
+            } else {
+                FlowRouter.go('App.home');
+            }
         });
-
-        FlowRouter.go('App.home');
     },
 })

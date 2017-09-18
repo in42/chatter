@@ -1,6 +1,6 @@
 <template name="Profile_page">
     <div class="chat-page">
-        <div class="container side-pane" style="width: 25%; display: inline-block;">
+        <div class="container side-pane" style="width: 25%; display: inline-block; margin: 0;">
             <div class="row header-side-pane">
                 <div class="app-logo-short menu-item col-md-4">
                     <img src="/logo-short.svg" alt="Chatter" height="40" width="40">
@@ -13,7 +13,7 @@
                         <a class="fa fa-globe" title="Broadcast" style="padding-top: 10px;" aria-hidden="true"></a>
                     </div>
                     <div class="menu-item text-center">
-                        <a class="fa fa-hand-peace-o sign-out" data-toggle="dropdown" title="Sign out" style="padding-top: 10px; padding-left: 10px;" aria-hidden="true"></a>
+                        <a class="fa fa-hand-peace-o" title="Sign out" style="padding-top: 10px; padding-left: 10px;" aria-hidden="true"></a>
                     </div>
                 </div>
             </div>
@@ -25,5 +25,39 @@
                 {{/each}}
             </div>
         </div>
+        {{#if conversationHeaderNone}}
+        {{else}}
+        <div class="container chat-pane" style="width: 74%; display: inline-block;">
+            <div class="row">
+                {{#if conversationHeaderNew}}
+                <form class="form-find-username">
+                    <div class="col-md-8 converse-username">
+                        <input type="text" name="converseUsername" class="form-control {{usernameError}}" style="height: 42px; display: inline-block;
+                        margin-top: 0px !important;
+                        height: 40px; font-size: 16px !important;
+                        line-height: 20px !important;" placeholder="Type username">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-block btn-chat" style="display: inline-block;
+                        height: 38px; margin-top: 0px !important;
+                        font-size: 16px !important;
+                        line-height: 18px !important;">Chat</button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-block btn-cancel" style="display: inline-block;
+                        margin-top: 0px !important; height: 38px;
+                        background-image: linear-gradient(to bottom,#fff 0,#f2f2f2 100%);
+                        border-color: rgb(216, 216, 216); color: #222;
+                        font-size: 16px !important;
+                        line-height: 18px !important;">Cancel</button>
+                    </div>
+                </form>
+                {{/if}}
+                {{#if conversationHeaderChosen}}
+                <p>chosen</p>
+                {{/if}}
+            </div>
+        </div>
+        {{/if}}
     </div>
 </template>

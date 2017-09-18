@@ -65,11 +65,11 @@ Template.Signup_page.events({
         };
 
         Accounts.createUser(user, function(error) {
-            return instance.state.set('serverError', error);
-        });
-
-        Meteor.defer(() => {
-            FlowRouter.go('App.home');
+            if (error) {
+                return instance.state.set('serverError', error);
+            } else {
+                FlowRouter.go('App.home');
+            }
         });
     },
 })
