@@ -1,1 +1,11 @@
-<template name="Message"></template>
+<template name="Message">
+    {{#if (isMine creatorId)}}
+    <div class="row col-md-7 col-md-offset-5 text-right">
+        <p class="message-text">{{text}}</p>
+    </div>
+    {{else}}
+    <div class="row col-md-7">
+        <p class="message-text">{{text}}</p>
+    </div>
+    {{/if}}
+</template>

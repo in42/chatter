@@ -1,6 +1,6 @@
 <template name="Profile_page">
     <body class="chat-page">
-        <div class="container side-pane" style="width: 25%; display: inline-block; margin: 0;">
+        <div class="container side-pane" style="width: 25%; display: inline-block; margin: 0; height: 100%;">
             <div class="row side-pane-header" style="background-color: f6f6f6;">
                 <div class="app-logo-short menu-item col-md-4">
                     <img src="/logo-short.svg" alt="Chatter" height="40" width="40">
@@ -17,13 +17,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row conversation-heads-pane">
+            <div class="row conversation-heads-pane" style="margin-top: 72px; overflow: auto;">
                 {{#each conversation in conversations}}
                     {{> Conversation_head (conversationHeadArgs conversation)}}
                 {{/each}}
             </div>
         </div>
-        <div class="container chat-pane" style="width: 74%; display: inline-block;">
+        <div class="container chat-pane" style="width: 74%; display: inline-block; margin: 0;">
             {{#if conversationHeaderNone}}
             {{/if}}
             {{#if conversationHeaderNew}}
@@ -43,18 +43,13 @@
                     </div>
                     <div class="col-md-2">
                         <button type="button" class="btn btn-block btn-cancel" style="display: inline-block;
-                        margin-top: 0px !important; height: 38px;
+                        margin: 0px !important; height: 38px;
                         background-image: linear-gradient(to bottom,#fff 0,#f2f2f2 100%);
                         border-color: rgb(216, 216, 216); color: #222;
                         font-size: 16px !important;
                         line-height: 18px !important;">Cancel</button>
                     </div>
                 </form>
-            </div>
-            <div class="row chat-pane-body">
-                <div class="container">
-                    
-                </div>
             </div>
             {{/if}}
             {{#if conversationHeaderChosen}}

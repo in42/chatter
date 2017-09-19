@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { $ } from 'meteor/jquery';
 
 import { Conversations } from '../../api/conversations/conversations.js';
 import { insert } from '../../api/conversations/methods.js';
@@ -48,7 +49,7 @@ Template.Profile_page.helpers({
         return Conversations.find({ $or: [
             { user1Id: Meteor.userId() },
             { user2Id: Meteor.userId() },
-        ]});
+        ]}, { sort: { lastModified: -1 }, });
     },
     conversationHeadArgs(conversation) {
         const conversationId = conversation._id;
@@ -113,7 +114,7 @@ Template.Profile_page.events({
             }
 
             var conversation = Conversations.findOne({ _id: conversationId });
-            instance.state.set('conversationChosen', conversation);
+            instance.state.set('conversationChosen', $.extend(conversation, { converser: username }));
             instance.state.set('conversationState', CONVERSATION_STATE.CHOSEN);
         });
     },
@@ -121,6 +122,7 @@ Template.Profile_page.events({
         event.preventDefault();
 
         instance.state.set('conversationState', CONVERSATION_STATE.NONE);
+        instance.state.set('usernameError', false);
     },
     'click .fa-hand-peace-o'(event, instance) {
         event.preventDefault();

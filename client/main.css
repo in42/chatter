@@ -19,6 +19,14 @@
     font-style: normal;
 }
 
+html, body {
+    height: 100%;
+}
+
+#__blaze-root {
+    height: 100%;
+}
+
 .app-name {
     margin: 15px !important;
 }
@@ -32,7 +40,6 @@
 
 .app-banner {
     background-color: white;
-    width: auto;
     margin: 0;
     padding-bottom: 0;
     padding-top: 32px;
@@ -127,6 +134,9 @@ p.form-control-error {
 }
 
 .side-pane-header {
+    top: 0;
+    position: fixed;
+    width: 25%;
     padding: 15px;
     border-bottom: 1px solid #dbdbdb;
     border-radius: 2px;
@@ -141,6 +151,22 @@ p.form-control-error {
     border-bottom: 1px solid #dbdbdb;
     border-radius: 2px;
     box-shadow: 0 4px 2px -2px #e4e4e4;
+}
+
+.conversation-show {
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+    margin-left: 0px;
+}
+
+.conversation-show-footer {
+    bottom: 0;
+    position: fixed;
+    width: 74%;
+    padding: 15px;
+    border-top: 1px solid #dbdbdb;
+    border-radius: 2px;
 }
 
 .menu-item {

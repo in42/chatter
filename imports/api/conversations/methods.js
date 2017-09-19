@@ -11,6 +11,7 @@ export const insert = new ValidatedMethod({
         displayname1: Conversations.simpleSchema().schema('displayname1'),
         user2Id:      Conversations.simpleSchema().schema('user2Id'),
         displayname2: Conversations.simpleSchema().schema('displayname2'),
+        lastModified: Conversations.simpleSchema().schema('lastModified'),
     }).validator(),
     run({ user1Id, displayname1, user2Id, displayname2 }) {
         const conversation = {
@@ -18,6 +19,7 @@ export const insert = new ValidatedMethod({
             displayname1: displayname1,
             user2Id:      user2Id,
             displayname2: displayname2,
+            lastModified: new Date(),
         };
         return Conversations.insert(conversation);
     }

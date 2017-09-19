@@ -18,9 +18,3 @@ Messages.schema = new SimpleSchema({
 });
 
 Messages.attachSchema(Messages.schema);
-
-Messages.helpers({
-    isMine(userId) {
-        return this.creatorId === userId;
-    },
-});

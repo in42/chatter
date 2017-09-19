@@ -16,8 +16,13 @@ Template.Conversation_head.onCreated(function conversationHeadOnCreated() {
 });
 
 Template.Conversation_head.helpers({
-    shouldShow() {
+    shouldShow(latestMessage) {
         return !!latestMessage;
     },
-
+    truncate(latestMessage) {
+        if (latestMessage.length > 30) {
+            return latestMessage.substr(0, 30) + '...';
+        }
+        return latestMessage;
+    }
 });
