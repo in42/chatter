@@ -134,6 +134,9 @@ p.form-control-error {
 }
 
 .chat-pane-header {
+    top: 0;
+    position: fixed;
+    width: 74%;
     padding: 15px;
     border-bottom: 1px solid #dbdbdb;
     border-radius: 2px;
