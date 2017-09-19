@@ -5,8 +5,9 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Conversations } from '../../api/conversations/conversations.js';
 import { insert } from '../../api/conversations/methods.js';
+import '../components/conversation-head.js';
+import '../components/conversation-show.js';
 
-import '../components/conversation-head.html';
 import './profile-page.html';
 
 const CONVERSATION_STATE = {
@@ -22,6 +23,7 @@ Template.Profile_page.onCreated(function profilePageOnCreated() {
     this.state.setDefault({
         usernameError: false,
         conversationState: CONVERSATION_STATE.NONE,
+        conversationChosen: null,
     });
 });
 
@@ -49,13 +51,23 @@ Template.Profile_page.helpers({
         ]});
     },
     conversationHeadArgs(conversation) {
-        const converser = conversation.converser(Meteor.userId());
+        const conversationId = conversation._id;
+        const converserId = conversation.converser(Meteor.userId());
+        const converserDisplayname = conversation.displayname(converserId);
         const latestMessage = conversation.latestMessage;
+        const lastModified = conversation.lastModified;
         return {
-            converser: converser,
+            conversationId: conversationId,
+            converserId: converserId,
+            converserDisplayname: converserDisplayname,
             latestMessage: latestMessage,
+            lastModified: lastModified,
         };
     },
+    conversationChosen() {
+        const instance = Template.instance();
+        return instance.state.get('conversationChosen');
+    }
 });
 
 Template.Profile_page.events({
@@ -77,15 +89,32 @@ Template.Profile_page.events({
             if (error || !result) {
                 return instance.state.set('usernameError', true);
             }
-            insert.call({
-                user1Id: Meteor.userId(),
-                user2Id: result,
-            }, function(error) {
-                if (error) {
-                    return instance.state.set('usernameError', true);
-                }
-                // TODO: draw conversation show with conversation chosen
-            });
+
+            var previousConversation = Conversations.findOne({ $or: [
+                { user1Id: result._id },
+                { user2Id: result._id },
+            ]});
+
+            var conversationId = null;
+
+            if (!!previousConversation) {
+                conversationId = previousConversation._id;
+            } else {
+                conversationId = insert.call({
+                    user1Id: Meteor.userId(),
+                    displayname1: Meteor.user().profile.displayname,
+                    user2Id: result._id,
+                    displayname2: result.profile.displayname,
+                }, function(error) {
+                    if (error) {
+                        return instance.state.set('usernameError', true);
+                    }
+                });
+            }
+
+            var conversation = Conversations.findOne({ _id: conversationId });
+            instance.state.set('conversationChosen', conversation);
+            instance.state.set('conversationState', CONVERSATION_STATE.CHOSEN);
         });
     },
     'click .btn-cancel'(event, instance) {

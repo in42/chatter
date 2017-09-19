@@ -1,2 +1,14 @@
 <template name="Conversation_head">
+    {{#if shouldShow}}
+    <div class="row conversation-head" style="padding: 15px; margin: 0;
+    box-shadow: 0 3px 2px -2px #e4e4e4;">
+        <div class="container col-md-2">
+            <i style="font-size: 32px; padding-top: 5px;" class="fa fa-user-circle"></i>
+        </div>
+        <div class="container col-md-10">
+            <p style="font-size: 16px; font-weight: bold; margin-bottom: 0;">{{converserDisplayname}}</p>
+            <p style="font-size: 14px;  margin-bottom: 0;">Lorem ipsum dolor sit amet</p>
+        </div>
+    </div>
+    {{/if}}
 </template>

@@ -1,1 +1,1 @@
-import './conversation.html';
+import './conversation-show.html';

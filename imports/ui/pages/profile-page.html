@@ -1,7 +1,7 @@
 <template name="Profile_page">
     <div class="chat-page">
         <div class="container side-pane" style="width: 25%; display: inline-block; margin: 0;">
-            <div class="row header-side-pane">
+            <div class="row side-pane-header" style="background-color: f6f6f6;">
                 <div class="app-logo-short menu-item col-md-4">
                     <img src="/logo-short.svg" alt="Chatter" height="40" width="40">
                 </div>
@@ -17,19 +17,17 @@
                     </div>
                 </div>
             </div>
-            <div class="container conversation-heads-pane">
+            <div class="row conversation-heads-pane">
                 {{#each conversation in conversations}}
-                    <div class="row conversation-head">
-                        {{> Conversation_head (conversationHeadArgs conversation)}}
-                    </div>
+                    {{> Conversation_head (conversationHeadArgs conversation)}}
                 {{/each}}
             </div>
         </div>
-        {{#if conversationHeaderNone}}
-        {{else}}
         <div class="container chat-pane" style="width: 74%; display: inline-block;">
-            <div class="row">
-                {{#if conversationHeaderNew}}
+            {{#if conversationHeaderNone}}
+            {{/if}}
+            {{#if conversationHeaderNew}}
+            <div class="row chat-pane-header"  style="background-color: f6f6f6;">
                 <form class="form-find-username">
                     <div class="col-md-8 converse-username">
                         <input type="text" name="converseUsername" class="form-control {{usernameError}}" style="height: 42px; display: inline-block;
@@ -52,12 +50,16 @@
                         line-height: 18px !important;">Cancel</button>
                     </div>
                 </form>
-                {{/if}}
-                {{#if conversationHeaderChosen}}
-                <p>chosen</p>
-                {{/if}}
             </div>
+            <div class="row chat-pane-body">
+                <div class="container">
+
+                </div>
+            </div>
+            {{/if}}
+            {{#if conversationHeaderChosen}}
+            {{> Conversation_show conversationChosen}}
+            {{/if}}
         </div>
-        {{/if}}
     </div>
 </template>

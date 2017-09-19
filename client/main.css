@@ -123,14 +123,21 @@ p.form-control-error {
 }
 
 .side-pane {
-    padding: 15px;
-    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
 }
 
-.chat-pane {
+.side-pane-header {
     padding: 15px;
     border-bottom: 1px solid #dbdbdb;
-    border-left: 1px solid #dbdbdb;
+    border-radius: 2px;
+    box-shadow: 0 4px 2px -2px #e4e4e4;
+}
+
+.chat-pane-header {
+    padding: 15px;
+    border-bottom: 1px solid #dbdbdb;
+    border-radius: 2px;
+    box-shadow: 0 4px 2px -2px #e4e4e4;
 }
 
 .menu-item {

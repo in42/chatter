@@ -13,8 +13,10 @@ Conversations.schema = new SimpleSchema({
     _id:           { type: String, regEx: SimpleSchema.RegEx.Id },
     latestMessage: { type: String, optional: true },
     user1Id:       { type: String, regEx: SimpleSchema.RegEx.Id },
+    displayname1:  { type: String, },
     user2Id:       { type: String, regEx: SimpleSchema.RegEx.Id },
-    createdAt:     { type: Date },
+    displayname2:  { type: String, },
+    lastModified:  { type: Date, optional: true },
 });
 
 Conversations.attachSchema(Conversations.schema);
@@ -27,6 +29,12 @@ Conversations.helpers({
         if (this.user1Id === userId) {
             return this.user2Id;
         }
-        return user1Id;
+        return this.user1Id;
+    },
+    displayname(userId) {
+        if (this.user1Id == userId) {
+            return this.displayname1;
+        }
+        return this.displayname2;
     }
 });
